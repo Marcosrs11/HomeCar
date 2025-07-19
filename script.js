@@ -1,38 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('mobile-menu');
   const navLinks = document.querySelector('.nav-links');
+  
+  // Cria overlay
   const overlay = document.createElement('div');
   overlay.classList.add('overlay');
   document.body.appendChild(overlay);
 
-  // Abre/fecha menu
+  // Abrir menu
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     overlay.classList.toggle('active');
   });
 
-  // Fecha menu ao clicar fora
+  // Fechar menu clicando fora
   overlay.addEventListener('click', () => {
     navLinks.classList.remove('active');
     overlay.classList.remove('active');
   });
 
-  // Fecha menu ao clicar no link e faz scroll
+  // Fechar menu ao clicar nos links E rolar suavemente
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      const targetId = link.getAttribute('href');
 
-      // Fecha o menu com delay e depois rola
-      navLinks.classList.remove('active');
-      overlay.classList.remove('active');
+      const href = link.getAttribute('href');
+      const destino = document.querySelector(href);
 
-      setTimeout(() => {
-        const target = document.querySelector(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300); // tempo para o menu "fechar" visualmente
+      if (destino) {
+        // Fecha o menu com leve atraso antes do scroll
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+
+        setTimeout(() => {
+          destino.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
     });
   });
 });
