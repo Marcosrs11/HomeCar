@@ -282,6 +282,14 @@ footer .copyright {
 
   .menu-toggle {
     display: block;
+    position: fixed;
+  top: 0;
+  right: 0; /* <- ALTERADO */
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  transition: transform 0.3s ease;
+  transform: translateX(100%); /* <- ALTERADO */
   }
 
   .container {
