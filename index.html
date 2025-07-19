@@ -20,10 +20,11 @@
       <span>HomeCarBarra</span>
     </a>
 
+
     <ul class="nav-links">
       <li><a href="#inicio">Início</a></li>
       <li><a href="#carros">Carros</a></li>
-      <li><a href="#esportivos">Motos</a></li>
+      <li><a href="#esportivos">Esportivos</a></li>
       <li><a href="#blindados">Blindados</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
@@ -41,11 +42,11 @@
   </header>
 
   <!-- CARROS -->
-  <section id="Carros">
+  <section id="carros">
     <h2>Nossos Carros</h2>
     <div class="card-grid">
       <div class="car-card" data-aos="fade-up">
-        <img src="img/carros/civic1.png" alt="Honda Civic 2022">
+        <img src="img/Carros/civic1.png" alt="Honda Civic 2022">
         <div class="car-info">
           <h3>Honda Civic 2022</h3>
           <p class="preco">R$ 98.000</p>
@@ -54,7 +55,7 @@
       </div>
 
       <div class="car-card" data-aos="fade-up">
-        <img src="img/carros/corolla1.png" alt="Toyota Corolla 2023">
+        <img src="img/Carros/corolla1.png" alt="Toyota Corolla 2023">
         <div class="car-info">
           <h3>Toyota Corolla 2023</h3>
           <p class="preco">R$ 105.000</p>
@@ -64,8 +65,8 @@
     </div>
   </section>
 
-  <!-- MOTOS -->
-  <section id="Esportivos">
+  <!-- Esportivos -->
+  <section id="esportivos">
     <h2>Nossos Esportivos</h2>
     <div class="card-grid">
       <div class="car-card" data-aos="fade-up">
@@ -89,7 +90,7 @@
   </section>
 
   <!-- BLINDADOS -->
-  <section id="Blindados">
+  <section id="blindados">
     <h2>Veículos Blindados</h2>
     <div class="card-grid">
       <div class="car-card" data-aos="fade-up">
@@ -130,24 +131,17 @@
       </a>
     </div>
   </div>
-  
   <p class="copyright">© 2025 HomeCarBarra.</p>
 </footer>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
 
-    // Menu mobile
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
 </body>
 </html>
