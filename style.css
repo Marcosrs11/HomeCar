@@ -15,8 +15,19 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--cor-fundo);
   color: #ffffff;
-  line-height: 1.6; /* espaçamento entre linhas */
+  line-height: 1.6;
   scroll-behavior: smooth;
+}
+
+section {
+  padding: 100px 20px;
+  text-align: center;
+  scroll-margin-top: 100px; /* Garante que as seções não fiquem escondidas pela navbar fixa */
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
 }
 
 /* === NAVBAR === */
@@ -26,36 +37,30 @@ body {
   width: 100%;
   padding: 20px 0;
   z-index: 1000;
-  background-color: #000000; /* seu preto */
-  box-shadow: none; /* remove sombra */
-  border-bottom: none; /* remove borda, se tiver */
-  color: var(--cor-primaria);
+  background-color: #000000;
+  transition: background-color 0.3s ease;
 }
 
-/* Classe que vamos adicionar via JS quando rolar a página */
 .navbar.scrolled {
-  background: rgba(18, 18, 18, 0.8); /* cor semelhante ao seu fundo escuro */
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  background-color: #000000;
+  box-shadow: none;
 }
 
 .container {
   display: flex;
   align-items: center;
-  justify-content: center; /* tudo centralizado */
-  position: relative; /* pra posicionar logo */
+  justify-content: center;
+  position: relative;
 }
 
 .logo {
   position: absolute;
-  left: 30px; /* distância da esquerda */
+  left: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
-
 
 .logo img {
   height: 40px;
@@ -65,6 +70,13 @@ body {
 .logo span {
   font-size: 1.5rem;
   font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
   color: var(--cor-primaria);
 }
 
@@ -80,25 +92,24 @@ body {
   color: var(--cor-primaria);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
-.nav-links a:hover {
-  color: var(--cor-primaria);
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--cor-texto);
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #fff;
+  background-color: var(--cor-primaria);
+  outline: none;
 }
 
 /* === HERO === */
 .hero-section {
   position: relative;
   height: 100vh;
-  background: url('img/fundo/fundo-site2.png') center/cover no-repeat;
+  background: url('img/Fundo/fundo-site2.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,7 +121,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5); /* preto semi-transparente */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -134,20 +145,10 @@ body {
 .hero-content p {
   font-size: 1.2rem;
   color: #ffffff;
-  font-weight: 700; /* negrito */
+  font-weight: 700;
 }
 
-/* === SEÇÕES === */
-section {
-  padding: 100px 20px;
-  text-align: center;
-}
-
-section h2 {
-  font-size: 2rem;
-  color: var(--cor-primaria);
-}
-
+/* === CARDS === */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -212,7 +213,6 @@ section h2 {
   color: #f1f1f1;
   padding: 40px 20px 20px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .container-rodape {
@@ -238,12 +238,12 @@ section h2 {
 }
 
 .redes-sociais a:hover {
-  color: #25d366; /* Verde WhatsApp */
+  color: #25d366;
   transform: scale(1.2);
 }
 
 .redes-sociais a[aria-label="Instagram"]:hover {
-  color: #e4405f; /* Rosa Instagram */
+  color: #e4405f;
 }
 
 @media (min-width: 600px) {
@@ -264,32 +264,68 @@ footer .copyright {
 /* === RESPONSIVO === */
 @media (max-width: 768px) {
   .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
     background-color: #111;
     flex-direction: column;
-    width: 200px;
-    display: none;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 999;
+    padding: 80px 20px;
+    border-left: 2px solid var(--cor-primaria);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1002;
+    pointer-events: auto;
   }
 
   .nav-links.active {
-    display: flex;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links a {
+    color: var(--cor-primaria);
+    padding: 10px;
+    font-size: 1.2rem;
+    pointer-events: auto;
   }
 
   .menu-toggle {
     display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+    z-index: 1003;
   }
 
-  .container {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  .logo {
+    left: 20px;
   }
 
-  .nav-links li {
-    margin: 10px 0;
+  .logo span {
+    display: none;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 1001;
+  }
+
+  .overlay.active {
+    display: block;
   }
 }
