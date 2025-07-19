@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeCarBarra</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+  <div class="container">
+    <a href="#inicio" class="logo">
+      <img src="img/logo/logo2.png" alt="Logo HomeCarBarra" />
+      <span>HomeCarBarra</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#carros">Carros</a></li>
+      <li><a href="#esportivos">Motos</a></li>
+      <li><a href="#blindados">Blindados</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+  </div>
+</nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero-section">
+    <div class="hero-content">
+      <h1>Bem-vindos à HomeCarBarra</h1>
+      <p>Qualidade, confiança e os melhores veículos para você</p>
+    </div>
+  </header>
+
+  <!-- CARROS -->
+  <section id="Carros">
+    <h2>Nossos Carros</h2>
+    <div class="card-grid">
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/Carros/civic1.png" alt="Honda Civic 2022">
+        <div class="car-info">
+          <h3>Honda Civic 2022</h3>
+          <p class="preco">R$ 98.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/Carros/corolla1.png" alt="Toyota Corolla 2023">
+        <div class="car-info">
+          <h3>Toyota Corolla 2023</h3>
+          <p class="preco">R$ 105.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTOS -->
+  <section id="Esportivos">
+    <h2>Nossos Esportivos</h2>
+    <div class="card-grid">
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/esportivos/911.jpg" alt="Porsche 911">
+        <div class="car-info">
+          <h3>Porsche 911</h3>
+          <p class="preco">R$ 900.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/esportivos/urus.png" alt="Lamborghini Urus">
+        <div class="car-info">
+          <h3>Lamborghini Urus</h3>
+          <p class="preco">R$ 3.000.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLINDADOS -->
+  <section id="Blindados">
+    <h2>Veículos Blindados</h2>
+    <div class="card-grid">
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/blindados/sw4.jpg" alt="Toyota SW4 Blindado">
+        <div class="car-info">
+          <h3>Toyota SW4</h3>
+          <p class="preco">R$ 230.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-aos="fade-up">
+        <img src="img/blindados/q5.jpg" alt="Audi Q5 Blindado">
+        <div class="car-info">
+          <h3>Audi Q5</h3>
+          <p class="preco">R$ 310.000</p>
+          <button>Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+  <div class="container-rodape">
+    <div class="info-contato">
+      <p><i class="fas fa-phone-alt"></i> (21) 97738-2929</p>
+      <p><i class="fas fa-envelope"></i> contato@homecarbarra.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Barra da Tijuca - RJ</p>
+    </div>
+    
+    <div class="redes-sociais">
+      <a href="https://wa.me/5521977382929" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://instagram.com/homecarbarra" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+  
+  <p class="copyright">© 2025 HomeCarBarra.</p>
+</footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Menu mobile
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
