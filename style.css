@@ -98,7 +98,7 @@ body {
 .hero-section {
   position: relative;
   height: 100vh;
-  background: url('img/Fundo/fundo-site2.png') center/cover no-repeat;
+  background: url('img/fundo/fundo-site2.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
