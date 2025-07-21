@@ -11,34 +11,37 @@ document.addEventListener('DOMContentLoaded', () => {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     overlay.classList.toggle('active');
-    body.classList.toggle('menu-open');
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
   });
 
+  // Fecha menu clicando na área escura (overlay)
   overlay.addEventListener('click', () => {
-    fecharMenu();
-    fecharModal(); // fecha o modal se estiver aberto
+    if (navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.style.overflow = '';
+    }
+    if (modal.classList.contains('show')) {
+      fecharModal();
+    }
   });
 
-  function fecharMenu() {
-    navLinks.classList.remove('active');
-    overlay.classList.remove('active');
-    body.classList.remove('menu-open');
-  }
-
+  // Fecha menu e rola para a seção ao clicar em um link
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
 
       const href = link.getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
+      if (!href || href === '#') return;
 
       const target = document.querySelector(href);
-      fecharMenu();
 
       if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        body.style.overflow = '';
+
+        target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
@@ -62,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       modal.classList.add('show');
       overlay.classList.add('active');
-      body.classList.add('modal-open');
+      body.style.overflow = 'hidden';
     });
   });
 
@@ -71,15 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function fecharModal() {
     modal.classList.remove('show');
     overlay.classList.remove('active');
-    body.classList.remove('modal-open');
+    body.style.overflow = '';
   }
-
-  // --- FECHAR MODAL SE CLICAR FORA ---
-  overlay.addEventListener('click', () => {
-    if (modal.classList.contains('show')) {
-      fecharModal();
-    }
-  });
 
   // --- VOLTAR PARA O TOPO AO ATUALIZAR ---
   window.history.scrollRestoration = 'manual';
