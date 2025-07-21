@@ -6,32 +6,40 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(overlay);
 
   const body = document.body;
+  const modal = document.getElementById('carModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDescription');
+  const modalPrice = document.getElementById('modalPrice');
+  const closeBtn = document.querySelector('.close-btn');
 
   // --- MENU MOBILE ---
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     overlay.classList.toggle('active');
     body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    console.log('Menu toggled. Active?', navLinks.classList.contains('active'));
   });
 
-  // Fecha menu clicando na área escura (overlay)
   overlay.addEventListener('click', () => {
     if (navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       overlay.classList.remove('active');
       body.style.overflow = '';
+      console.log('Overlay clicked: menu closed');
     }
     if (modal.classList.contains('show')) {
       fecharModal();
+      console.log('Overlay clicked: modal closed');
     }
   });
 
-  // Fecha menu e rola para a seção ao clicar em um link
+  // Fecha menu e faz scroll suave
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-
       const href = link.getAttribute('href');
+      console.log('Menu link clicked:', href);
+
       if (!href || href === '#') return;
 
       const target = document.querySelector(href);
@@ -40,19 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
         body.style.overflow = '';
-
+        console.log('Scrolling to:', href);
         target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('Target not found for href:', href);
       }
     });
   });
 
   // --- MODAL DE DETALHES ---
-  const modal = document.getElementById('carModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDescription');
-  const modalPrice = document.getElementById('modalPrice');
-  const closeBtn = document.querySelector('.close-btn');
-
   document.querySelectorAll('.ver-detalhes').forEach(btn => {
     btn.addEventListener('click', () => {
       const card = btn.closest('.car-card');
@@ -66,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('show');
       overlay.classList.add('active');
       body.style.overflow = 'hidden';
+
+      console.log('Modal aberto para:', nome);
     });
   });
 
@@ -75,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('show');
     overlay.classList.remove('active');
     body.style.overflow = '';
+    console.log('Modal fechado');
   }
 
   // --- VOLTAR PARA O TOPO AO ATUALIZAR ---
