@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Menu toggled. Active?', navLinks.classList.contains('active'));
   });
 
+  // Clique no overlay fecha menu ou modal, conforme o que estiver aberto
   overlay.addEventListener('click', () => {
     if (navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Fecha menu e faz scroll suave
+  // Fecha menu e rola suavemente para seção após o menu fechar
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -45,11 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
 
       if (target) {
+        // Fecha menu e overlay
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
         body.style.overflow = '';
-        console.log('Scrolling to:', href);
-        target.scrollIntoView({ behavior: 'smooth' });
+
+        // Aguarda 300ms para o menu fechar (mesmo tempo da transição CSS)
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+          console.log('Scrolling to:', href);
+        }, 300);
       } else {
         console.warn('Target not found for href:', href);
       }
