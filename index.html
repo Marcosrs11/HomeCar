@@ -4,32 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HomeCarBarra</title>
+
+  <!-- Fontes e Estilos -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Scripts -->
   <script defer src="script.js"></script>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-  <div class="container">
-    <a href="#inicio" class="logo">
-      <img src="img/logo/logo2.png" alt="Logo HomeCarBarra" />
-      <span>HomeCarBarra</span>
-    </a>
+    <div class="container">
+      <a href="#inicio" class="logo">
+        <img src="img/logo/logo2.png" alt="Logo HomeCarBarra" />
+        <span>HomeCarBarra</span>
+      </a>
 
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#carros">Carros</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#carros">Carros</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-
-    <div class="menu-toggle" id="mobile-menu">☰</div>
-  </div>
-</nav>
+      <div class="menu-toggle" id="mobile-menu">☰</div>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <header id="inicio" class="hero-section">
@@ -43,47 +46,63 @@
   <section id="carros">
     <h2>Nossos Carros</h2>
     <div class="card-grid">
-      <div class="car-card" data-aos="fade-up">
-        <img src="img/carros/civic1.png" alt="Honda Civic 2022">
+
+      <div class="car-card" data-aos="fade-right">
+        <img src="img/Carros/civic1.png" alt="Honda Civic 2022">
         <div class="car-info">
           <h3>Honda Civic 2022</h3>
-          <p class="preco">R$ 98.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 118.000</span><br />
+            <span class="preco-oferta">Por R$ 98.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
 
-      <div class="car-card" data-aos="fade-up">
-        <img src="img/carros/corolla1.png" alt="Toyota Corolla 2023">
+      <div class="car-card" data-aos="fade-left">
+        <img src="img/Carros/corolla1.png" alt="Toyota Corolla 2023">
         <div class="car-info">
           <h3>Toyota Corolla 2023</h3>
-          <p class="preco">R$ 105.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 130.000</span><br />
+            <span class="preco-oferta">Por R$ 115.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Esportivos -->
+  <!-- ESPORTIVOS -->
   <section id="esportivos">
     <h2>Nossos Esportivos</h2>
     <div class="card-grid">
-      <div class="car-card" data-aos="fade-up">
+
+      <div class="car-card" data-aos="zoom-in">
         <img src="img/esportivos/911.jpg" alt="Porsche 911">
         <div class="car-info">
           <h3>Porsche 911</h3>
-          <p class="preco">R$ 900.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 1.200.000</span><br />
+            <span class="preco-oferta">Por R$ 1.099.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
 
-      <div class="car-card" data-aos="fade-up">
+      <div class="car-card" data-aos="zoom-in-up">
         <img src="img/esportivos/urus.png" alt="Lamborghini Urus">
         <div class="car-info">
           <h3>Lamborghini Urus</h3>
-          <p class="preco">R$ 3.000.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 3.150.000</span><br />
+            <span class="preco-oferta">Por R$ 2.999.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -91,55 +110,74 @@
   <section id="blindados">
     <h2>Veículos Blindados</h2>
     <div class="card-grid">
-      <div class="car-card" data-aos="fade-up">
+
+      <div class="car-card" data-aos="flip-left" data-aos-delay="200">
         <img src="img/blindados/sw4.jpg" alt="Toyota SW4 Blindado">
         <div class="car-info">
           <h3>Toyota SW4</h3>
-          <p class="preco">R$ 230.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 250.000</span><br />
+            <span class="preco-oferta">Por R$ 230.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
 
-      <div class="car-card" data-aos="fade-up">
+      <div class="car-card" data-aos="flip-right" data-aos-delay="300">
         <img src="img/blindados/q5.jpg" alt="Audi Q5 Blindado">
         <div class="car-info">
           <h3>Audi Q5</h3>
-          <p class="preco">R$ 310.000</p>
-          <button>Ver detalhes</button>
+          <p class="preco">
+            <span class="preco-antigo">De R$ 350.000</span><br />
+            <span class="preco-oferta">Por R$ 310.000</span>
+          </p>
+          <button class="ver-detalhes">Ver Detalhes</button>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- RODAPÉ -->
   <footer class="rodape">
-  <div class="container-rodape">
-    <div class="info-contato">
-      <p><i class="fas fa-phone-alt"></i> (21) 97738-2929</p>
-      <p><i class="fas fa-envelope"></i> contato@homecarbarra.com</p>
-      <p><i class="fas fa-map-marker-alt"></i> Barra da Tijuca - RJ</p>
+    <div class="container-rodape">
+      <div class="info-contato">
+        <p><i class="fas fa-phone-alt"></i> (21) 97738-2929</p>
+        <p><i class="fas fa-envelope"></i> contato@homecarbarra.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Barra da Tijuca - RJ</p>
+      </div>
+
+      <div class="redes-sociais">
+        <a href="https://wa.me/5521977382929" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/homecarbarra" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
-    
-    <div class="redes-sociais">
-      <a href="https://wa.me/5521977382929" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://instagram.com/homecarbarra" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
+    <p class="copyright">© 2025 HomeCarBarra.</p>
+  </footer>
+
+  <!-- Modal de detalhes dos carros -->
+  <div id="carModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="modalTitle">Título do Carro</h3>
+      <p id="modalDescription">Descrição detalhada do carro vai aqui.</p>
+      <p id="modalPrice">Preço: R$ 0,00</p>
     </div>
   </div>
-  <p class="copyright">© 2025 HomeCarBarra.</p>
-</footer>
 
-  <!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
-</script>
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: false,
+      duration: 800,
+      offset: 150,
+    });
+  </script>
 
 </body>
 </html>
